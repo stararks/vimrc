@@ -9,6 +9,7 @@ set smarttab
 set cindent shiftwidth=4
 set hlsearch
 set incsearch
+set guifont=Source\ Code\ Pro\ for\ Powerline:h12 "install Powerline fonts
 "set foldmethod=syntax
 "set foldlevelstart=1
 hi Search ctermfg=black
@@ -71,9 +72,10 @@ filetype plugin indent on     " required
 " " see :h vundle for more details or wiki for FAQ
 " " NOTE: comments after Plugin commands are not allowed.
 " " Put your stuff after this line
+let NERDTreeIgnore = ['\.pyc$']
 let g:ctrlp_show_hidden=1
-let g:airline_theme='solarized'
 let g:airline_powerline_fonts=1
+let g:airline_theme='solarized'
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 let g:syntastic_always_populate_loc_list = 1
@@ -94,6 +96,8 @@ map <leader>n :NERDTreeToggle<CR>
 map <leader>f :NERDTreeFind<CR>
 map <leader>o :copen<CR>
 map <leader>c :cclose<CR>
+map <leader>gr :grep '\b<cword>\b' **/*<CR>:copen<CR>
+
 
 command DiffOrig let g:diffline = line('.') | vert new | set bt=nofile | r # | 0d_ | diffthis | :exe "norm! ".g:diffline."G" | wincmd p | diffthis | wincmd p
 nnoremap <Leader>do :DiffOrig<cr>
